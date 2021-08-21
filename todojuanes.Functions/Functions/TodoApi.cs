@@ -78,16 +78,16 @@ namespace todojuanes.Functions.Functions
             //Validate todo id
             TableOperation findOperation = TableOperation.Retrieve<TodoEntity>("TODO", id);
             TableResult findResult = await todoTable.ExecuteAsync(findOperation);
-            if (findResult.Result ==null)
+            if (findResult.Result == null)
             {
-                
-                    return new BadRequestObjectResult(new Response
-                    {
-                        isSuccess = false,
-                        Message = "Todo not found."
 
-                    });
-                
+                return new BadRequestObjectResult(new Response
+                {
+                    isSuccess = false,
+                    Message = "Todo not found."
+
+                });
+
             }
 
             // Update todo
@@ -122,7 +122,7 @@ namespace todojuanes.Functions.Functions
             log.LogInformation("Get all todos received.");
 
             TableQuery<TodoEntity> query = new TableQuery<TodoEntity>();
-            TableQuerySegment<TodoEntity> todos = await todoTable.ExecuteQuerySegmentedAsync(query, null);   
+            TableQuerySegment<TodoEntity> todos = await todoTable.ExecuteQuerySegmentedAsync(query, null);
 
             string message = "Retrieved all todos";
             log.LogInformation(message);

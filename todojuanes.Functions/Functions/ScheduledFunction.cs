@@ -17,7 +17,7 @@ namespace todojuanes.Functions.Functions
         {
             log.LogInformation($"Deleting completed function executed at: {DateTime.Now}");
 
-            string filter = TableQuery.GenerateFilterConditionForBool("IsCompleted", QueryComparisons.Equal, true);
+            string filter = TableQuery.GenerateFilterConditionForBool("IsCompleted", QueryComparisons.Equal, false);
             TableQuery<TodoEntity> query = new TableQuery<TodoEntity>().Where(filter);
             TableQuerySegment<TodoEntity> completedTodos = await todoTable.ExecuteQuerySegmentedAsync(query, null);
             int deleted = 0;
