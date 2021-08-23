@@ -200,5 +200,10 @@ namespace todojuanes.Functions.Functions
                 Result = todoEntity
             });
         }
+
+        public static Task CreateTodo()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
